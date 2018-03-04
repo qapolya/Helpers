@@ -1,0 +1,11 @@
+int u;
+double dd = 3.0;
+double sum;
+string ss = "";
+u = int.Parse(Console.ReadLine());
+dd = double.Parse(Console.ReadLine());
+ss = Console.ReadLine();
+Console.WriteLine(Convert.ToString(i + u));
+sum = dd + d;
+Console.WriteLine(string.Format("{0:0.0}", sum));
+Console.WriteLine(s + ss);
