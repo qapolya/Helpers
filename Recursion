@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+class Solution 
+{
+    public static int redJohn(int n) 
+    {
+        // Complete this function
+        int combinations = CalculateCombinations(n);
+        Console.WriteLine("Combinations {0}", combinations);
+        int primesCount = GetPrimesCount(combinations);
+         Console.WriteLine("Primes count {0}", primesCount);
+        
+        return primesCount; 
+    }
+ 
+    public static int CalculateCombinations(int n)
+    {
+        if (n==1 | n==2 | n==3)
+        {
+            return 1;
+        }
+        else 
+        {
+            return n - 2;
+        }
+    }
+         
+    public static int count = 0;
+    
+    public static int GetPrimesCount(int m)
+    {
+        //base terminator
+        if (m <= 2)
+        {
+            Console.WriteLine("Count before 2 is {0}", count);
+            count++;
+            Console.WriteLine("Count from 2 is taken once, new count is {0}", count);
+            return count;
+        }
+        else if ((m % 2 != 0) && (m % 3 != 0))
+        {
+            Console.WriteLine("Count is {0} , m is {1}", count, m);
+            count ++;
+            Console.WriteLine("New Count is {0} , m is still {1}", count, m);
+            return GetPrimesCount(m-1);
+        }
+        else
+            Console.WriteLine("No adding to count, here m is still {0}", m);
+            return GetPrimesCount(m-1);
+    }
+
+    
+    public static void Main(String[] args)
+    {
+        int t = Convert.ToInt32(Console.ReadLine());
+        for(int a0 = 0; a0 < t; a0++){
+            int n = Convert.ToInt32(Console.ReadLine());
+            int result = redJohn(n);
+            Console.WriteLine(result);
+        }
+    }
+}
